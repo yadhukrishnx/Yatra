@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "app",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -74,15 +75,15 @@ WSGI_APPLICATION = "yatra.wsgi.application"
 
 # Database
 # # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "test",
-#         'USER':'root',
-#         'PORT': 3306,
-#         'HOST' : 'localhost',
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "test",
+        'USER':'root',
+        'PORT': 3306,
+        'HOST' : 'localhost',
+    }
+}
 
 
 # Password validation
