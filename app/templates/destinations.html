@@ -48,11 +48,11 @@
                             <div class="feature-title">
                                 <h5>{{ destination.place_name }}</h5>
                                 <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ destination.state }},{{ destination.district }}</p>
-                                <a href="/update_destination/{{destination.id}}">Update</a>
+                                <a href="{% url 'update_destination' destination.id %}">Update</a>
                                 
                             </div>
                             <div class="feature-favourite">
-                                <a href="/detailed_destination/{{destination.id}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                <a href="{% url 'detailed_destination' destination.id %}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
