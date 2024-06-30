@@ -2,6 +2,14 @@
 
 {% block content %}
 {% load static %}
+<!--Model-->
+
+
+
+<!--Model-->
+
+
+
 
 <div class="breadcumb-area bg-img bg-overlay" style="background-image: url('{% static "assets/img/bg-img/hero-1.jpg" %}');"></div>
     <!-- ***** Breadcumb Area End ***** -->
@@ -11,6 +19,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+
+                    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.message_type }}">
+                {{ message }}
+    
+        {% endfor %}
+    </ul>
+{% endif %}
                     <div class="section-heading dark text-center">
                         <h4>Featured destinations</h4>
                         <span></span>
@@ -20,23 +38,26 @@
             </div>
             <div class="row">
                 <!-- Single Features Area -->
+                {% for destination in destinations %}
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="single-features-area mb-50">
-                        <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                        <img src="{{ destination.image.url }}" alt="{{ destination.place_name }}">
                         
                       
                         <div class="feature-content d-flex align-items-center justify-content-between">
                             <div class="feature-title">
-                                <h5>Ibiza</h5>
-                                <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                <h5>{{ destination.place_name }}</h5>
+                                <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ destination.state }},{{ destination.district }}</p>
+                                <a href="/update_destination/{{destination.id}}">Update</a>
                                 
                             </div>
                             <div class="feature-favourite">
-                                <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                <a href="/detailed_destination/{{destination.id}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
                 <!-- Single Features Area -->
                  <!-- Single Features Area -->
                
@@ -46,12 +67,13 @@
                  <!-- Add Destination option -->
                 <div class="col-12 col-sm-6 col-lg-3" >
                     <div class="single-features-area mb-50 d-flex align-items-center justify-content-center" style="height: 413px;">
+                        
                         <div class="feature-content text-center">
                             <div>
-                                <a href="#"><i class="fa fa-plus   fa-1x" aria-hidden="true"></i></a>
+                                <a href="{% url 'add_destination' %}"><i class="fa fa-plus   fa-1x" aria-hidden="true"></i></a>
                             </div>
                             <div>
-                                <a href="#"><h6>Add Destination</h6></a>
+                                <a href="{% url 'add_destination' %}"><h6>Add Destination</h6></a>
                             </div>
                         </div>
                     </div>

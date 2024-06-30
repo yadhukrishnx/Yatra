@@ -64,7 +64,7 @@
                             </div>
                             <!-- Signin btn -->
                             <div class="dorne-signin-btn">
-                                <a href="admin/">Admin</a>
+                                <a href="{% url 'admin:index' %}">Admin</a>
                             </div>
                             <!-- Add listings btn -->
                             <div class="dorne-add-listings-btn">
@@ -135,18 +135,20 @@
                 <div class="col-12">
                     <div class="features-slides owl-carousel">
                         <!-- Single Features Area -->
+                        {% for destination in destinations %}
                         <div class="single-features-area">
-                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                            <img src="{{ destination.image.url }}" alt="{{ destination.place_name }}">
                             <div class="feature-content d-flex align-items-center justify-content-between">
                                 <div class="feature-title">
-                                    <h5>Ibiza</h5>
-                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                    <h5>{{ destination.place_name }}</h5>
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{ destination.state }},{{ destination.district }}</p>
                                 </div>
                                 <div class="feature-favourite">
-                                    <a href="{% url 'detailed_destination' %}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                    <a href="/detailed_destination/{{destination.id}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
                         <!-- Single Features Area -->
                         
                         <!-- Add more features as needed -->

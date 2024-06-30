@@ -14,6 +14,13 @@ class TouristDestinationCreateView(generics.ListCreateAPIView):
     serializer_class = TouristDestinationSerializer
     permission_classes = [AllowAny]
 
+class TouristDestinationDetailView(generics.ListAPIView):
+    queryset = TouristDestination.objects.all()
+    serializer_class = TouristDestinationSerializer
+    
+class DeleteTouristDestination(generics.DestroyAPIView):
+    queryset = TouristDestination.objects.all()
+    serializer_class = TouristDestinationSerializer
 
 
 
@@ -69,6 +76,35 @@ def create_tourist_destination(request):
 
 
 
+def update_destination(request, pk):
+    api_url = f'http://127.0.0.1:8000/tourist-destinations-detail/{pk}/'
+    response = requests.get(api_url)
+    
+    if response.status_code == 200:
+        data = response.json()
+        destination_instance = TouristDestination.objects.get(pk=pk)
+
+        
+        
+
+        if request.method == 'POST':
+            form = TouristDestinationForm(request.POST, request.FILES, instance=destination_instance)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Destination details updated successfully.')
+                return redirect('update_destination', pk=pk)  # Redirect to update page on success
+            else:
+                messages.error(request, 'Error updating destination details. Please check the form.')
+        else:
+            form = TouristDestinationForm(instance=destination_instance)
+
+        return render(request, 'update_destination.html', {'form': form, 'destinationdata': destination_instance, 'destinations': destinations})
+
+    # Handle error cases if the API request fails
+    messages.error(request, 'Failed to fetch destination details.')
+    return redirect('home')  # Redirect to home or any other page on API request failure
+
+
 
 
 
@@ -76,13 +112,35 @@ def create_tourist_destination(request):
 
 
 def base(request):
-    return render(request, 'base.html')
+    destinations = TouristDestination.objects.all()
+    return render(request, 'base.html',{'destinations': destinations})
 
 def destinations(request):
-    return render(request, 'destinations.html')
+    destinations = TouristDestination.objects.all()
+    return render(request, 'destinations.html',{'destinations': destinations})
 
-def detailed_destination(request):
-    return render(request, 'detailed_destination.html')
+def detailed_destination(request, pk):
+    api_url = f'http://127.0.0.1:8000/tourist-destinations-detail/{pk}/'
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        data = response.json()
+        destination_instance = TouristDestination.objects.get(pk=pk)
+    
+    return render(request, 'detailed_destination.html',{'destination': destination_instance})
 
 # def add_destination(request):
 #     return render(request, 'add_destination.html')
+
+
+def delete_destination(request, pk):
+    api_url = f'http://127.0.0.1:8000/tourist-destinations-delete/{pk}'
+
+    response = requests.delete(api_url)
+
+    if response.status_code == 200:
+        messages.success(request, 'Destination details updated successfully.')
+        
+    else:
+        print(f'Failed to delete item. Status code {response.status_code}')
+
+    return redirect('destinations')

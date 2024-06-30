@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<div class="breadcumb-area bg-img bg-overlay" style="background-image:url('{% static "assets/img/bg-img/hero-1.jpg" %}');">
+</div>
+
+<section class="dorne-single-listing-area section-padding-100">
+    <div class="container">
+
+
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div>
+        <h2>{{ destinationdata.place_name }}</h2>
+        <img src="{{ destinationdata.image.url }}" alt="{{ destinationdata.place_name }}" width="300">
+        <p><strong>State:</strong> {{ destinationdata.state }}</p>
+        <p><strong>District:</strong> {{ destinationdata.district }}</p>
+        <p><strong>Google Map Link:</strong> <a href="{{ destinationdata.google_map_link }}" target="_blank">{{ destinationdata.google_map_link }}</a></p>
+        <p><strong>Description:</strong></p>
+        <ul>
+            {% for desc in destinations %}
+            <li>{{ desc }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h2>Update Details Form</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Update Destination</button>
+    </form>
+
+</div>
+</section>
+
+
+{% endblock %}
