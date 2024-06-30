@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+
+    <!-- Title -->
+    <title>YATRA - TOURIST DESTINATIONS</title>
+
+    <!-- Favicon -->
+    <link rel="icon"  href="{% static 'assets/img/core-img/favicon.ico' %}">
+
+    <!-- Core Stylesheet -->
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'assets/css/responsive/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dorne-load"></div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100">
+                    <nav class="h-100 navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="#"><img src="{% static 'assets/img/core-img/logo.png' %}" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                        <!-- Nav -->
+                        <div class="collapse navbar-collapse" id="dorneNav">
+                            <ul class="navbar-nav mr-auto" id="dorneMenu">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#destinations">Featured <span class="sr-only">(current)</span></a>
+                                    
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Destination</a>
+                                </li>
+                               
+                            </ul>
+                            <!-- Search btn -->
+                            <div class="dorne-search-btn">
+                                <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                            </div>
+                            <!-- Signin btn -->
+                            <div class="dorne-signin-btn">
+                                <a href="#">Sign in  or Register</a>
+                            </div>
+                            <!-- Add listings btn -->
+                            <div class="dorne-add-listings-btn">
+                                <a href="#" class="btn dorne-btn">+ Add Destination</a>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+
+
+    {% block content %}
+
+    <!-- ***** Welcome Area Start ***** -->
+    <section class="dorne-welcome-area bg-img bg-overlay" style="background-image: url('{% static "assets/img/bg-img/hero-1.jpg" %}');">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-10">
+                    <div class="hero-content">
+                        <h2>Discover places in Kerala</h2>
+                        <h4>This is the best guide for you</h4>
+                    </div>
+                    <!-- Hero Search Form -->
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Hero Social Btn -->
+        
+    </section>
+    
+    <!-- ***** About Area Start ***** -->
+    <section class="dorne-about-area section-padding-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content text-center mt-5 ">
+                        <h2>Discover Tourist destionations <br><span><small>with</small>YATRA</span></h2>
+                        <p>YATRA, is a robust platform designed to efficiently manage and showcase information about various tourist spots. It leverages Django REST framework to provide users with seamless CRUD operations—Create, Read, Update, Delete—on destination entries.
+
+                            Users can effortlessly add new tourist destinations, capturing essential details such as Place Name, Weather conditions, precise Location including State and District, a Google Map Link for navigation, relevant images, and comprehensive Descriptions. Each entry is meticulously organized to offer travelers and explorers a comprehensive view of potential destinations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** About Area End ***** -->
+
+
+    <!-- ***** Features Destinations Area Start ***** -->
+    <section id="destinations" class="dorne-features-destinations-area" style="margin-top: -50px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <h4>Featured destinations</h4>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <div class="features-slides owl-carousel">
+                        <!-- Single Features Area -->
+                        <div class="single-features-area">
+                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Ibiza</h5>
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                </div>
+                                <div class="feature-favourite">
+                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Features Area -->
+                        <div class="single-features-area">
+                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Ibiza</h5>
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                </div>
+                                <div class="feature-favourite">
+                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Features Area -->
+                        <div class="single-features-area">
+                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5>Ibiza</h5>
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                </div>
+                                <div class="feature-favourite">
+                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Features Area -->
+                        <!-- Add more features as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Destinations Area End ***** -->
+
+    {% endblock %}
+
+    <!-- ****** Footer Area Start ****** -->
+    <footer class="dorne-footer-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-md-flex align-items-center justify-content-between">
+                    <div class="footer-text">
+                        <p>
+                             All rights reserved | Made by <a href="https://github.com/yadhukrishnx" target="_blank">Yadhukrishnx</a>
+<!
+                        </p>
+                    </div>
+                    <div class="footer-social-btns">
+                        <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ****** Footer Area End ****** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'assets/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'assets/js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="{% static 'assets/js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'assets/js/others/plugins.js' %}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'assets/js/active.js' %}"></script>
+</body>
+
+</html>
