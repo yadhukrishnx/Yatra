@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+<section class="dorne-single-listing-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <!-- Image Column -->
+            <div class="col-lg-4">
+                <div class="single-listing-image">
+                    <img src="{% static 'assets/img/bg-img/feature-3.jpg' %}" alt="Destination Image" >
+                </div>
+            </div>
+            <!-- Details Column -->
+            <div class="col-lg-8 d-flex align-items-center justify-content-center ">
+                <div class="single-listing-content">
+                    <div class="listing-title">
+                        <h4>Place Name</h4>
+                        <span><hr></span>
+                    </div>
+                    <div class="listing-details">
+                        <p><strong>Weather:</strong> Sunny, 25°C</p>
+                        <p><strong>Location:</strong> State, District</p>
+                        <p><strong>Google Map:</strong> <a href="https://maps.google.com">View on Map</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Description Row -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="single-listing-description">
+                    <h5>Description</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac nibh sed mi ullamcorper rhoncus. Curabitur pulvinar vel augue sit amet vestibulum. Proin tempus lacus porta lorem blandit aliquam eget quis ipsum. Vivamus accumsan consequat ligula non volutpat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

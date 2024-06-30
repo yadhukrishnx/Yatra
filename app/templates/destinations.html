@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url('{% static "assets/img/bg-img/hero-1.jpg" %}');"></div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Listing Destinations Area Start ***** -->
+    <section class="dorne-listing-destinations-area section-padding-100-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <h4>Featured destinations</h4>
+                        <span></span>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Features Area -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-features-area mb-50">
+                        <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
+                        
+                      
+                        <div class="feature-content d-flex align-items-center justify-content-between">
+                            <div class="feature-title">
+                                <h5>Ibiza</h5>
+                                <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
+                                
+                            </div>
+                            <div class="feature-favourite">
+                                <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Features Area -->
+                 <!-- Single Features Area -->
+               
+                <!-- Single Features Area -->
+
+
+                 <!-- Add Destination option -->
+                <div class="col-12 col-sm-6 col-lg-3" >
+                    <div class="single-features-area mb-50 d-flex align-items-center justify-content-center" style="height: 413px;">
+                        <div class="feature-content text-center">
+                            <div>
+                                <a href="#"><i class="fa fa-plus   fa-1x" aria-hidden="true"></i></a>
+                            </div>
+                            <div>
+                                <a href="#"><h6>Add Destination</h6></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add destination-->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var navitem = document.getElementById("destinations");
+        navitem.classList.add("active");
+        
+
+        
+      </script>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+
+
+<div class="breadcumb-area bg-img bg-overlay" style="background-image:url('{% static "assets/img/bg-img/hero-1.jpg" %}');">
+</div>
+<!-- ***** Breadcumb Area End ***** -->
+
+<!-- ***** Contact Area Start ***** -->
+<div class="dorne-contact-area d-md-flex" id="contact">
+    <!-- Contact Form Area -->
+    <div class="contact-form-area equal-height">
+        <div class="contact-text">
+            <h4>Instructions for Adding a New Tourist Destination</h4>
+            <p>To add a new tourist destination. Fill in all the required fields, including the Place Name, Weather, State, District, Google Map Link, an image, and a detailed Description. Ensure that the Place Name accurately reflects the destination, and the Weather description provides useful information for potential visitors. Specify the State and District to help users locate the destination easily. Paste the Google Map Link to give users a precise location, and upload a representative image to enhance the entry. Finally, provide a comprehensive Description highlighting the key attractions and features of the destination. Once all the information is entered, review it for accuracy and click the "Submit" button to add the new destination to the database.</p>
+            <br>
+            <p>Recommended image Dimentions : Width: 1100px, Height: 1135px</p>
+        </div>
+        <style>
+            .message-box {
+               margin-top: 20px;
+                width: 600px;
+                height: 100px;
+                background-color: #d4edda00;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                text-align: center;
+                font-size: 18px;
+                /* Center text vertically */
+            }
+        </style>
+        <div id="successMessage" class="message-box">
+            Destination added successfully!
+        </div>
+    </div>
+    <!-- Map Area -->
+    <div class="dorne-map-area equal-height">
+        
+            <div class="contact-form">
+                <div class="contact-form-title">
+                    <h6>Add Destination</h6>
+                </div>
+                <form action="#">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="place_name" class="form-control" placeholder="Place Name" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="weather" class="form-control" placeholder="Weather" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="state" class="form-control" placeholder="State" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="text" name="district" class="form-control" placeholder="District" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="url" name="google_map_link" class="form-control" placeholder="Google Map Link" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="file" name="image" class="form-control" accept="image/*" required>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="description" class="form-control" id="description" cols="30" rows="10" placeholder="Description" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn dorne-btn">Add Destination</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+    </div>
+</div>
+
+{% endblock %}

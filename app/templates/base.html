@@ -43,16 +43,18 @@
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
                             <ul class="navbar-nav mr-auto" id="dorneMenu">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="#destinations">Featured <span class="sr-only">(current)</span></a>
-                                    
+                                
+                                <li class="nav-item " id="home">
+                                    <a class="nav-link" href="{% url 'base' %}">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Destination</a>
+                                <!-- <li class="nav-item dropdown " >
+                                    <a class="nav-link" href="#">Featured <span class="sr-only">(current)</span></a>
+                                    
+                                </li> -->
+                                
+                                <li class="nav-item"  id="destinations">
+                                    <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
                                 </li>
                                
                             </ul>
@@ -62,11 +64,11 @@
                             </div>
                             <!-- Signin btn -->
                             <div class="dorne-signin-btn">
-                                <a href="#">Sign in  or Register</a>
+                                <a href="admin/">Admin</a>
                             </div>
                             <!-- Add listings btn -->
                             <div class="dorne-add-listings-btn">
-                                <a href="#" class="btn dorne-btn">+ Add Destination</a>
+                                <a href="{% url 'add_destination' %}" class="btn dorne-btn">+ Add Destination</a>
                             </div>
                         </div>
                     </nav>
@@ -87,7 +89,8 @@
                 <div class="col-12 col-md-10">
                     <div class="hero-content">
                         <h2>Discover places in Kerala</h2>
-                        <h4>This is the best guide for you</h4>
+                        <h4>This is the best guide for you </h4>
+                        <a href="{% url 'destinations' %}"><button  class="btn mt-3"><i class="fa fa-map fa-1x " aria-hidden="true"></i>&nbsp; Find destinations</button></a>
                     </div>
                     <!-- Hero Search Form -->
                     
@@ -117,7 +120,7 @@
 
 
     <!-- ***** Features Destinations Area Start ***** -->
-    <section id="destinations" class="dorne-features-destinations-area" style="margin-top: -50px;">
+    <section id="destinations" class="dorne-features-destinations-area" style="margin-top: -50px;" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -140,37 +143,12 @@
                                     <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
                                 </div>
                                 <div class="feature-favourite">
-                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                    <a href="{% url 'detailed_destination' %}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <!-- Single Features Area -->
-                        <div class="single-features-area">
-                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
-                            <div class="feature-content d-flex align-items-center justify-content-between">
-                                <div class="feature-title">
-                                    <h5>Ibiza</h5>
-                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
-                                </div>
-                                <div class="feature-favourite">
-                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Features Area -->
-                        <div class="single-features-area">
-                            <img src="{% static 'assets/img/bg-img/feature-1.jpg' %}" alt="">
-                            <div class="feature-content d-flex align-items-center justify-content-between">
-                                <div class="feature-title">
-                                    <h5>Ibiza</h5>
-                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Spain</p>
-                                </div>
-                                <div class="feature-favourite">
-                                    <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Features Area -->
+                        
                         <!-- Add more features as needed -->
                     </div>
                 </div>
@@ -179,6 +157,11 @@
     </section>
     <!-- ***** Features Destinations Area End ***** -->
 
+
+    <script>
+        var navitem = document.getElementById("home");
+        navitem.classList.add("active");
+      </script>
     {% endblock %}
 
     <!-- ****** Footer Area Start ****** -->
